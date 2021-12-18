@@ -15,18 +15,22 @@ PASSWORD = os.environ.get("PASSWORD")
 def create_server() -> None:
     """Create a server"""
 
-    print("Initializing server")
+    try:
+        print("Initializing server")
 
-    server = smtplib.SMTP(SERVER, PORT)
-    server.set_debuglevel(1)
-    server.ehlo()
-    server.starttls()
-    server.login(FROM, PASSWORD)
+        server = smtplib.SMTP(SERVER, PORT)
+        server.set_debuglevel(1)
+        server.ehlo()
+        server.starttls()
+        server.login(FROM, PASSWORD)
 
-    print("===========================================================")
-    print("Server connected successfully 🎉")
-    print("===========================================================")
-    return server
+        print("===========================================================")
+        print("Server connected successfully 🎉")
+        print("===========================================================")
+        return server
+    except Exception as err:
+        print("Error creating the server 😢😭", err)
+        raise
 
 
 def cleanup_server(server) -> None:
@@ -58,3 +62,4 @@ def send_email(content: str, subject: str, recipients: str) -> None:
         print("===========================================================")
         print("Error sending email 😢😭", err)
         print("===========================================================")
+        raise
