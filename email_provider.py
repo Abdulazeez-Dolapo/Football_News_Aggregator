@@ -54,7 +54,7 @@ def send_email(content: str, subject: str, recipients: str) -> None:
         print("===========================================================")
 
         cleanup_server(server)
-    except:
+    except Exception as err:
         print("===========================================================")
-        print("Error sending email 😢😭")
+        print("Error sending email 😢😭", err)
         print("===========================================================")
