@@ -32,7 +32,7 @@ def format_football365_article_list(article_list: list, start_count: int = 1) ->
 
         return content
     except Exception as err:
-        print("Error formatting article list 😢😭", err)
+        print("Error formatting F365 article list 😢😭", err)
         raise
 
 
