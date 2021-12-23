@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 SERVER = os.environ.get("MAIL_SERVER")
-PORT = os.environ.get("PORT")
+PORT = os.environ.get("MAIL_PORT")
 FROM = os.environ.get("MAIL_FROM")
 PASSWORD = os.environ.get("PASSWORD")
 
